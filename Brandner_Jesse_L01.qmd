@@ -80,6 +80,11 @@ Construct a scatterplot of `hwy` versus `cty` using the `mpg` dataset. What is t
 ```{r}
 #| label: ex-2
 
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy)) +
+  geom_point()
+
 ```
 
 
@@ -96,7 +101,27 @@ Now construct a scatterplot of `hwy` versus `cty`. Set the color of the points t
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: ex-3a
+
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy,
+                     color = drv)) +
+  geom_point()
+
+```
+
+```{r}
+#| label: ex-3b
+
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy)) +
+  geom_point(color = "orchid") +
+  facet_wrap(~drv)
+
+```
 
 :::
 
