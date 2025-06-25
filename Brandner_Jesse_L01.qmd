@@ -53,7 +53,7 @@ tinder_data <- read_csv("data/tinder_data.csv")
 
 ## Exercises
 
-### Exercise 1 
+### Exercise 1  
 
 There are 3 particularly important components to our template for building a graphic with `ggplot2`. They are `<DATA>`, `<GEOM_FUNCTION>`, and `<MAPPINGS>`. The importance of `<DATA>` is obvious. `<GEOM_FUNCTION>` is referring to the selection of a **geom**. `<MAPPINGS>`, specifically `aes(<MAPPINGS>)`, is referring to the process of defining **aesthetic mappings**.
 
