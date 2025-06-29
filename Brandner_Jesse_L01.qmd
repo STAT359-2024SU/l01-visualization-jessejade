@@ -193,7 +193,18 @@ Construct a histogram of the `carat` variable in the `diamonds` dataset. Adjust 
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: ex-5
+
+ggplot(data = diamonds, 
+       aes(x = carat)) +
+  geom_histogram(bins = 30, 
+                 fill = "orchid") +
+  labs(title = "Distribution of Diamond Carat",
+       y = NULL,
+       caption = "Source: ggplot2 package")
+
+```
 
 :::
 
@@ -204,7 +215,24 @@ Construct 2 appropriate graphics to show the relationship between `carat` and `c
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: ex-6
+
+ggplot(data = diamonds, aes(x = cut, y = carat)) +
+  geom_violin(fill = "skyblue")
+
+
+```
+
+```{r}
+#| label: ex-6a
+
+ggplot(data = diamonds, 
+       aes(x = cut, 
+           y = carat)) +
+  geom_boxplot()
+
+```
 
 :::
 
