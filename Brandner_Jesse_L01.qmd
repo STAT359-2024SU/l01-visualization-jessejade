@@ -142,7 +142,39 @@ Construct a scatterplot of `hwy` vs `cty`. Next, map a third numerical variable 
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: ex-4a
+
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy,
+                     color = drv)) +
+  geom_jitter()
+
+```
+
+```{r}
+#| label: ex-4b
+
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy,
+                     size = cyl)) +
+  geom_jitter()
+
+?mpg
+```
+
+```{r}
+#| label: ex-4c
+
+ggplot(data = mpg,
+       mapping = aes(x = cty, 
+                     y = hwy,
+                     shape = class)) +
+  geom_jitter()
+
+```
 
 :::
 
@@ -151,8 +183,7 @@ How do the aesthetics behave differently for categorical versus numerical variab
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
-
+Numerical variables work best with size and continuous color, since both can show gradual changes in values. Categorical variables are better for shape and discrete color, which clearly separate groups. Mapping numeric data to shape doesn’t work well because shapes don’t have an inherent order, and it can be confusing.
 :::
 
 ### Exercise 5
