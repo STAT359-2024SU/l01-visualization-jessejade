@@ -350,6 +350,11 @@ p4 <- ggplot(tinder_data,
 
 ggsave("plots/sent_vs_received_by_gender.png", p4)
 
+p1
+p2
+p3
+p4
+
 ```
 
 The plots show a strong positive relationship between messages sent and received. The dots mostly follow the 1:1 line, but there’s more spread at higher message counts, likely because some users send or receive way more messages than others. When we color by gender, we see men usually fall below the line, meaning they send more than they get replies, while women often fall above the line, meaning they receive more than they send. The histograms show most users send and receive few messages, but a few users have very high counts, which could affect our results. Overall, this suggests men tend to send more without getting many replies, and women tend to receive more messages, showing clear differences in messaging patterns by gender.
@@ -382,6 +387,6 @@ ggplot(mpg,
 
 ```
 
-The function geom_jitter() places points randomly away from their original spots. The plot changes on every run. To fix this, we can set a random seed before plotting (set.seed(123)) to make the jitter reproducible.
+The function geom_jitter() places points randomly away from their original spots. The plot changes on every run. To fix this, we can set a random seed before plotting (set.seed()) to make the jitter reproducible.
 
 :::
