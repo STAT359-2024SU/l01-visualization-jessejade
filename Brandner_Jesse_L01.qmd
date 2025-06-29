@@ -35,6 +35,7 @@ You should always begin by loading all necessary packages towards the beginning 
 
 library(tidyverse)
 library(ggplot2)
+library(ggthemes)
 
 ```
 
@@ -367,6 +368,20 @@ Why might your graph not match the example exactly? What could we do to ensure o
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: grad-challenge
+
+ggplot(mpg, 
+       aes(y = class,
+           x = hwy)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.25) +
+  theme_gdocs() +
+  labs(x = "Highway MPG",
+       y = "Vehicle Class")
+
+```
+
+The function geom_jitter() places points randomly away from their original spots. The plot changes on every run. To fix this, we can set a random seed before plotting (set.seed(123)) to make the jitter reproducible.
 
 :::
