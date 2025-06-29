@@ -64,9 +64,9 @@ There are 3 particularly important components to our template for building a gra
 ::: {.callout-tip icon="false"}
 ## Solution
 
-A geom is a geometric object that is used in ggplot2 to visualize data. We can layer multiple onto a plot such as geom_line and geom_point. 
+A geom is a geometric object in ggplot2 that shows data points, like geom_line or geom_point. Multiple geoms can be layered in one plot.
 
-Aesthetic mapping dictates which variables in our data connect to certain aesthetics. For example, we can map a categorical variable to color and shape on a scatterplot to identify group trends.
+An aesthetic mapping links data variables to visual aesthetics, like mapping a category to color or shape to display groups.
 
 :::
 
