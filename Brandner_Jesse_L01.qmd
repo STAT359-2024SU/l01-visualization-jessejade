@@ -87,6 +87,7 @@ ggplot(data = mpg,
 
 ```
 
+The problem with this graph is that many points overlap. Both of the variables are discrete so it is hard to see where all the points are. We could fix this by using geom_jitter to move the points around a little.
 
 :::
 
@@ -108,7 +109,7 @@ ggplot(data = mpg,
        mapping = aes(x = cty, 
                      y = hwy,
                      color = drv)) +
-  geom_point()
+  geom_jitter()
 
 ```
 
@@ -118,8 +119,8 @@ ggplot(data = mpg,
 ggplot(data = mpg,
        mapping = aes(x = cty, 
                      y = hwy)) +
-  geom_point(color = "orchid") +
-  facet_wrap(~drv)
+  geom_jitter(color = "orchid") +
+  facet_wrap(~drv, ncol = 2, scales = "free")
 
 ```
 
@@ -128,9 +129,9 @@ ggplot(data = mpg,
 What are the advantages to using faceting instead of the color aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?
 
 ::: {.callout-tip icon="false"}
-## Solution
 
-YOUR SOLUTION HERE
+## Solution
+Faceting shows each group in its own plot, which is clearer but can take up space. Coloring shows everything together but can get messy. With lots of data, faceting helps avoid overlap but too many groups can look cluttered.
 
 :::
 
