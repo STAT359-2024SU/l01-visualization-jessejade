@@ -162,7 +162,6 @@ ggplot(data = mpg,
                      size = cyl)) +
   geom_jitter()
 
-?mpg
 ```
 
 ```{r}
@@ -288,15 +287,75 @@ This dataset was provided by [Swipestats.io](https://www.swipestats.io/).
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+
+```{r}
+#| label: case-study
+
+#histogram of messages_sent
+p1 <- ggplot(tinder_data, 
+             aes(x = messages_sent)) +
+  geom_histogram(bins = 40, 
+                 fill = "orchid", 
+                 color = "white") +
+  labs(title = "Distribution of Messages Sent",
+       x = "Messages Sent",
+       y = "Count")
+
+ggsave("plots/hist_messages_sent.png", p1)
+
+# histogram of messages_received
+p2 <- ggplot(tinder_data, 
+             aes(x = messages_received)) +
+  geom_histogram(bins = 40, 
+                 fill = "darkgreen", 
+                 color = "white") +
+  labs(title = "Distribution of Messages Received",
+       x = "Messages Received",
+       y = "Count")
+
+ggsave("plots/hist_messages_received.png", p2)
+
+# scatterplot with coord_fixed and geom_abline
+p3 <- ggplot(tinder_data, 
+             aes(x = messages_sent, 
+                 y = messages_received)) +
+  geom_point(alpha = 0.4) +
+  geom_abline(intercept = 0, 
+              slope = 1, 
+              linetype = "dashed", 
+              color = "red") +
+  coord_fixed() +
+  labs(title = "Messages Sent vs. Received",
+       x = "Messages Sent",
+       y = "Messages Received")
+
+ggsave("plots/sent_vs_received.png", p3)
+
+# scatterplot colored by gender
+p4 <- ggplot(tinder_data, 
+                           aes(x = messages_sent, 
+                               y = messages_received, 
+                               color = user_gender)) +
+  geom_point(alpha = 0.4) +
+  geom_abline(intercept = 0, 
+              slope = 1, 
+              linetype = "dashed",
+              color = "black") +
+  coord_fixed() +
+  labs(title = "Messages Sent vs. Received by Gender",
+       x = "Messages Sent",
+       y = "Messages Received",
+       color = "Gender")
+
+ggsave("plots/sent_vs_received_by_gender.png", p4)
+
+```
+
+The plots show a strong positive relationship between messages sent and received. The dots mostly follow the 1:1 line, but there’s more spread at higher message counts, likely because some users send or receive way more messages than others. When we color by gender, we see men usually fall below the line, meaning they send more than they get replies, while women often fall above the line, meaning they receive more than they send. The histograms show most users send and receive few messages, but a few users have very high counts, which could affect our results. Overall, this suggests men tend to send more without getting many replies, and women tend to receive more messages, showing clear differences in messaging patterns by gender.
 
 :::
 
 ## Graduate Challenge
-
-::: callout-important
-Graduate students are required to complete this challenge. **It is optional for undergraduate students.**
-:::
 
 Recreate the following graphic:
 
