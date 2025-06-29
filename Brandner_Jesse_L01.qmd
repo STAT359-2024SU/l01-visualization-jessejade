@@ -218,7 +218,8 @@ Construct 2 appropriate graphics to show the relationship between `carat` and `c
 ```{r}
 #| label: ex-6
 
-ggplot(data = diamonds, aes(x = cut, y = carat)) +
+ggplot(data = diamonds, aes(x = cut, 
+                            y = carat)) +
   geom_violin(fill = "skyblue")
 
 
@@ -244,7 +245,16 @@ Construct a barplot of `cut`. Add in `aes(fill = carat > 0.7)`.
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+```{r}
+#| label: ex-7
+
+ggplot(data = diamonds, 
+       aes(x = cut, 
+           fill = carat > 0.7)) +
+  geom_bar() 
+
+
+```
 
 :::
 
@@ -255,7 +265,7 @@ When would you use `facet_grid()` versus `facet_wrap()`? When using `facet_grid(
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+We should use facet_wrap() for one variable, and facet_grid() for two. The variable with more levels goes in columns so the grid is wider and easier to read.
 
 :::
 
